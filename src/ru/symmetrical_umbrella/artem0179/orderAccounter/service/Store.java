@@ -25,10 +25,9 @@ public class Store {
     public Store(String path) throws FileNotFoundException {        
         this.fileDir = path;
         productList.addAll(WriterReaderProductCSV.readerOrderCSV(path));
-           
-            // считать все csv файлы из строк в них создать продукты и
-            // добавить в продуктлист
-            // считать все dat файлы и положить их вполе orderList
+        
+            // TODO: добавить в конструктор считывание заказов из файла аналогично продуктам
+
             
     }
     

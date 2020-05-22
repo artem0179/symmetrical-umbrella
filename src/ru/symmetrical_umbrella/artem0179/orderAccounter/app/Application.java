@@ -19,6 +19,7 @@ import java.util.Scanner;
 import ru.symmetrical_umbrella.artem0179.orderAccounter.model.Client;
 import ru.symmetrical_umbrella.artem0179.orderAccounter.model.Order;
 import ru.symmetrical_umbrella.artem0179.orderAccounter.model.Product;
+import ru.symmetrical_umbrella.artem0179.orderAccounter.service.ListMain;
 import ru.symmetrical_umbrella.artem0179.orderAccounter.service.SerializacionDeserializacionOrderDAT;
 import ru.symmetrical_umbrella.artem0179.orderAccounter.service.Store;
 import ru.symmetrical_umbrella.artem0179.orderAccounter.service.WriterReaderProductCSV;
@@ -32,7 +33,10 @@ public class Application {
     
     
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
-            String separator = File.separator;
+        
+     
+        
+        String separator = File.separator;
 
     
         Properties p = new Properties();
@@ -40,7 +44,7 @@ public class Application {
         String path = p.getProperty("filedir");
         
         Store store = new Store(path);
-        
+        new ListMain(store).setVisible(true);
 
         //Order order = store.createOrder();
         

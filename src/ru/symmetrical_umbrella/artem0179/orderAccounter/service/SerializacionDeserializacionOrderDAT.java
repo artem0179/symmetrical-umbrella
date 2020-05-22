@@ -35,7 +35,7 @@ public static void serializationOrder(List<Order> orderList, String path) throws
 }
     
 public static List<Order> deserializationOrder(String path) throws FileNotFoundException, IOException, ClassNotFoundException {
-    File file = new File(path);
+    File file = new File(path); 
     
     FileInputStream fis = new FileInputStream(file);
     ObjectInputStream ois = new ObjectInputStream(fis);
