@@ -49,7 +49,7 @@ public static void writerOrderSCV(String filePath, List<Product> productList) th
      
     for (Product p : productList){
         String a;
-        a = p.getArticle() +";"+p.getName()+";"+p.getDiametr()+";"+p.getPrice()+";"+p.getStockBalance();
+        a = p.getArticle() +";"+p.getName()+";"+p.getColour()+";"+p.getPrice()+";"+p.getStockBalance();
         writer.println(a);
         
     }

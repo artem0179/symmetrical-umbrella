@@ -5,6 +5,7 @@
  */
 package ru.symmetrical_umbrella.artem0179.orderAccounter.service;
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -12,6 +13,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 import ru.symmetrical_umbrella.artem0179.orderAccounter.model.Order;
 
@@ -38,7 +41,13 @@ public static List<Order> deserializationOrder(String path) throws FileNotFoundE
     File file = new File(path); 
     
     FileInputStream fis = new FileInputStream(file);
-    ObjectInputStream ois = new ObjectInputStream(fis);
+       ObjectInputStream ois = null;
+    try {
+        ois = new ObjectInputStream(fis);
+    } catch (EOFException e) {
+        return new ArrayList<>();
+    }
+    
     
     List<Order> result = (List<Order>)ois.readObject();
     

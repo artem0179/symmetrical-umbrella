@@ -14,15 +14,15 @@ import java.io.Serializable;
 public class Product implements Serializable {
     private long article;
     private String name;
-    private String diametr;
+    private String colour;
     private double price;
     private int stockBalance;
 
     
-    public Product (long article, String name, String diametr, double price, int StockBalance) {
+    public Product (long article, String name, String colour, double price, int StockBalance) {
         this.article = article;
         this.name = name;
-        this.diametr = diametr;
+        this.colour = colour;
         this.price = price;
         this.stockBalance = StockBalance;
     }
@@ -35,8 +35,8 @@ public class Product implements Serializable {
         this.name = name;
     }
 
-    public void setColor(String diametr) {
-        this.diametr = diametr;
+    public void setColor(String colour) {
+        this.colour = colour;
     }
 
     public void setPrice(double price) {
@@ -49,7 +49,7 @@ public class Product implements Serializable {
     
     @Override
     public String toString(){
-        return this.getArticle() +";"+this.getName()+";"+this.getDiametr()+";"+this.getPrice();
+        return this.getArticle() +";"+this.getName()+";"+this.getColour()+";"+this.getPrice();
     }
 
     /**
@@ -69,8 +69,8 @@ public class Product implements Serializable {
     /**
      * @return the diametr
      */
-    public String getDiametr() {
-        return diametr;
+    public String getColour() {
+        return colour;
     }
 
     /**

@@ -5,9 +5,13 @@
  */
 package ru.symmetrical_umbrella.artem0179.orderAccounter.service;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import ru.symmetrical_umbrella.artem0179.orderAccounter.model.Order;
 import ru.symmetrical_umbrella.artem0179.orderAccounter.model.Product;
 
@@ -22,20 +26,26 @@ public class Store {
     private List<Order> orderList = new ArrayList<>();
     private String fileDir; 
 
-    public Store(String path) throws FileNotFoundException {        
+    public Store(String path) throws FileNotFoundException, IOException, ClassNotFoundException {        
         this.fileDir = path;
-        productList.addAll(WriterReaderProductCSV.readerOrderCSV(path));
         
+        productList.addAll(WriterReaderProductCSV.readerOrderCSV(path + File.separator + "reassesment.csv"));
+        orderList.addAll(SerializacionDeserializacionOrderDAT.deserializationOrder(path + File.separator + "orders.dat"));
             // TODO: добавить в конструктор считывание заказов из файла аналогично продуктам
 
             
     }
     
-    public Order createOrder() {
-        Order order = new Order();
-                //заказ с пустым списком товаров и статусом готовится
+    public Order createOrder(Order order) {
+         
         orderList.add(order);
-                // дописываем заказ в файл dat
+        
+        try {
+            SerializacionDeserializacionOrderDAT.serializationOrder(orderList, fileDir + File.separator + "orders.dat");
+        } catch (IOException ex) {
+            Logger.getLogger(Store.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         return order;
     }
     
@@ -43,7 +53,12 @@ public class Store {
         return productList;
                 
     }
+        public List<Order> getOrderList() {
+        return orderList;
+                
+    }
     
     
+        
     
 }

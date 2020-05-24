@@ -32,27 +32,29 @@ public class Client implements Serializable {
         this(name, surname, deliveryAdress, phoneNumber);
         this.discount = discount;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public String getDeliveryAdress() {
+        return deliveryAdress;
+    }
+
+    public int getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public int getDiscount() {
+        return discount;
+    }
         
     
-    public void getName(int name) {
-        this.name = this.name;
-    }
-
-    public void getSurname(String surname) {
-        this.surname = this.surname;
-    }
-
-    public void getDeliveryAdress(String deliveryAdress) {
-        this.deliveryAdress = this.deliveryAdress;
-    }
-
-    public void getPhoneNumber(int phoneNumber) {
-        this.phoneNumber = this.phoneNumber;
-    }
-
-    public void getDiscount(int discount) {
-        this.discount = this.discount;
-    }
+    
     
     
     

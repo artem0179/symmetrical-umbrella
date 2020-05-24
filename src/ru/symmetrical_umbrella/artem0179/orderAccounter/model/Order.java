@@ -40,6 +40,18 @@ public class Order implements Serializable {
     public void delProduct(Product product) {
         productList.remove(product);
     }
+
+    public LocalDate getStartOfPrepareDate() {
+        return startOfPrepareDate;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public List<Product> getProductList() {
+        return productList;
+    }
     
     
     

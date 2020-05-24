@@ -48,34 +48,9 @@ public class Application {
 
         //Order order = store.createOrder();
         
-        //System.out.println(store.getProductList());
+       
         
-        /*Product p = new Product(123, "БМВ", 50, 20, 10);
-        order.addProduct(p);*/
-        
-        
-        WriterReaderProductCSV write = new WriterReaderProductCSV();
-        WriterReaderProductCSV read = new WriterReaderProductCSV();
-        
-        
-        List<Product> produclist = read.readerOrderCSV(path);
-        //store.getProductList().add(p);
-        write.writerOrderSCV(path, produclist);
-        
-        
-        //read.readerOrderCSV();
-        
-        Client client = new Client("ыроан", "asrh", "aaehs", 8435936);
-                
-        
-        Order order = new Order(LocalDate.of(2020,10,15), client, produclist);
-        
-        path = "C:\\Users\\рпи\\Documents\\NetBeansProjects\\Lab5\\orders.dat";
-        
-        
-        SerializacionDeserializacionOrderDAT.serializationOrder(Arrays.asList(order), path);
-        List<Order> order1 = SerializacionDeserializacionOrderDAT.deserializationOrder(path);
-        order1.toString();
+
         
     }    
     
